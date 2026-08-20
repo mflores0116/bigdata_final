@@ -6,20 +6,21 @@ Apache NiFi provides the ingestion and orchestration layer for this project. The
 
 ## Source Dataset
 
-**Dataset:** [Enter dataset name]  
-**GitHub direct URL:** [Enter the direct/raw GitHub URL used by the NiFi HTTP processor]
+**Dataset:** customer_churn.csv 
+**GitHub direct URL:** https://raw.githubusercontent.com/mflores0116/bigdata_final/refs/heads/main/sample-data/customer_churn.csv
 
-Briefly describe what the dataset contains and why it was selected.
+This dataset contains 1000 customer records. 
 
 ## Flow Design
 
+The NiFi flow uses three processors to download the dataset, assign the correct file name, and write the file into HDFS. 
 Describe the important processors used in the final NiFi flow and the role each processor performs.
 
 | Processor / Process Group | Role in the Flow |
 |---|---|
-| [Processor name] | [What it does] |
-| [Processor name] | [What it does] |
-| [Processor name] | [What it does] |
+| [Download File] | [What it does] |
+| [Update File Name] | [What it does] |
+| [Write File into HDFS] | [What it does] |
 
 Explain how data moves from the source URL through NiFi and into HDFS.
 
