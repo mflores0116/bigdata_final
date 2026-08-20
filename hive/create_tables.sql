@@ -1,14 +1,28 @@
--- DSC 650 Portfolio Starter
--- Replace this file with the Hive DDL from your final project.
---
--- Before publishing:
---   1. Remove credentials or environment-specific secrets.
---   2. Add short comments explaining important tables.
---   3. Keep the SQL that best demonstrates your work.
+-- Create a managed Hive table for the online retail customer churn dataset
 
--- Example structure only:
--- CREATE EXTERNAL TABLE your_table (
---     id STRING,
---     ...
--- )
--- STORED AS ...;
+CREATE TABLE customer_churn (
+    customer_id INT,
+    age INT,
+    gender STRING,
+    annual_income DOUBLE,
+    total_spend DOUBLE,
+    years_as_customer INT,
+    num_of_purchases INT,
+    average_transaction_amount DOUBLE,
+    num_of_returns INT,
+    num_of_support_contacts INT,
+    satisfaction_score INT,
+    last_purchase_days_ago INT,
+    email_opt_in BOOLEAN,
+    promotion_response STRING,
+    target_churn BOOLEAN
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+-- Load the customer churn dataset from HDFS into the managed Hive table
+
+LOAD DATA INPATH '/tmp/customer_churn.csv'
+INTO TABLE customer_churn;
