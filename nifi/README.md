@@ -38,7 +38,7 @@ Explain where NiFi writes the dataset and how the destination is used by the nex
 
 ### Running Flow / Queue Activity
 
-![NiFi Running] <img width="343" height="286" alt="image" src="https://github.com/user-attachments/assets/344e8c91-426c-46e2-949a-a6c9256d48ef" />
+<img width="343" height="286" alt="image" src="https://github.com/user-attachments/assets/344e8c91-426c-46e2-949a-a6c9256d48ef" />
 
 
 ### HDFS Ingestion Verification
