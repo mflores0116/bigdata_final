@@ -18,9 +18,9 @@ Describe the important processors used in the final NiFi flow and the role each 
 
 | Processor / Process Group | Role in the Flow |
 |---|---|
-| Download File | [What it does] |
-| Update File Name | [What it does] |
-| Write File into HDFS | [What it does] |
+| Download File (InvokeHTTP) | Sends an HTTP Get request to download the customer_churn.csv into the Nifi flow |
+| Update File Name (UpdateAttribute) | Updates the FlowFile 'filename' attribute so the downloaded file has the correct project filename |
+| Write File into HDFS (PutHDFS)| Writes the completed FlowFile into HDFS directory so it can be accessed by the next part of the pipeline|
 
 Explain how data moves from the source URL through NiFi and into HDFS.
 
