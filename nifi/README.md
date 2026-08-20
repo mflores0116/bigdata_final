@@ -7,9 +7,10 @@ Apache NiFi provides the ingestion and orchestration layer for this project. The
 ## Source Dataset
 
 **Dataset:** customer_churn.csv 
+
 **GitHub direct URL:** https://raw.githubusercontent.com/mflores0116/bigdata_final/refs/heads/main/sample-data/customer_churn.csv
 
-This dataset contains 1000 customer records. 
+This dataset contains 1000 online customer retail records. It includes information about customer demographics, purchasing behavior, satisfaction, and marketing engagement. The variable of interest here is customer churn, which reflects how the customer interacts with the company. I selected this dataset because I wanted to explore consumer behavior and determine whether customer characteristics and activity could be used to predict churn. The dataset is already cleaned, which allows the focus of the project to be on building and demonstrating a working pipeline.
 
 ## Flow Design
 
@@ -18,17 +19,17 @@ Describe the important processors used in the final NiFi flow and the role each 
 
 | Processor / Process Group | Role in the Flow |
 |---|---|
-| Download File (InvokeHTTP) | Sends an HTTP Get request to download the customer_churn.csv into the Nifi flow |
-| Update File Name (UpdateAttribute) | Updates the FlowFile 'filename' attribute so the downloaded file has the correct project filename |
+| Download File (InvokeHTTP) | Sends an HTTP Get request to download the `customer_churn.csv` into the Nifi flow |
+| Update File Name (UpdateAttribute) | Updates the FlowFile `filename` attribute so the downloaded file has the correct project filename |
 | Write File into HDFS (PutHDFS)| Writes the completed FlowFile into HDFS directory so it can be accessed by the next part of the pipeline|
 
-Explain how data moves from the source URL through NiFi and into HDFS.
+This flow begins with the Download File processor, which retrieves `customer_churn.csv` from the GitHub URL. This downloaded data is placed into a FlowFile and passed to the Update File Name processor. This processor sets the filename to `customer_churn.csv`. Then, the FlowFile is passed to the Write File to HDFS processor, which connects and writes the dataset to HDFS.
 
 ## HDFS Destination
 
-**HDFS path:** `[Enter final HDFS path]`
+**HDFS path:** `/tmp`
 
-Explain where NiFi writes the dataset and how the destination is used by the next stage of the pipeline.
+Nifi write `customer_churn.csv` to the above HDFS directory using the PutHDFS processor. 
 
 ## Execution Evidence
 
