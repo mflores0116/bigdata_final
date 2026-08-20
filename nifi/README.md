@@ -18,9 +18,9 @@ Describe the important processors used in the final NiFi flow and the role each 
 
 | Processor / Process Group | Role in the Flow |
 |---|---|
-| [Download File] | [What it does] |
-| [Update File Name] | [What it does] |
-| [Write File into HDFS] | [What it does] |
+| Download File | [What it does] |
+| Update File Name | [What it does] |
+| Write File into HDFS | [What it does] |
 
 Explain how data moves from the source URL through NiFi and into HDFS.
 
