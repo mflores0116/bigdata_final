@@ -1,9 +1,27 @@
--- DSC 650 Portfolio Starter
--- Replace these comments with representative Hive queries from your final project.
---
--- Choose queries that demonstrate meaningful work rather than every query you ran.
+-- Verify the number of customer records loaded into Hive
 
--- Example:
--- SELECT ...
--- FROM ...
--- WHERE ...;
+SELECT COUNT(*) AS total_customers
+FROM customer_churn;
+
+-- Preview records from the managed Hive table
+
+SELECT *
+FROM customer_churn
+LIMIT 10;
+
+-- Compare churned and non-churned customer counts
+
+SELECT
+    target_churn,
+    COUNT(*) AS customer_count
+FROM customer_churn
+GROUP BY target_churn;
+
+-- Compare average spending and satisfaction by churn status
+
+SELECT
+    target_churn,
+    ROUND(AVG(total_spend), 2) AS avg_total_spend,
+    ROUND(AVG(satisfaction_score), 2) AS avg_satisfaction_score
+FROM customer_churn
+GROUP BY target_churn;
