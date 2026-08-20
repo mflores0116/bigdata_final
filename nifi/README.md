@@ -34,7 +34,8 @@ Explain where NiFi writes the dataset and how the destination is used by the nex
 
 ### Final NiFi Flow
 
-![NiFi Flow](C:\Users\mirey\Documents\Bellevue\Big Data\Week 11)
+<img width="346" height="286" alt="image" src="https://github.com/user-attachments/assets/eb2e2157-c34e-4272-93cb-5f70163e65d2" />
+
 
 ### Running Flow / Queue Activity
 
