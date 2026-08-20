@@ -1,10 +1,11 @@
-# DSC 650 Portfolio Starter
-# Replace these comments with representative HBase commands from your project.
-#
-# Suggested examples:
-#   create ...
-#   put ...
-#   get ...
-#   scan ...
-#
-# Add brief comments so a reviewer understands what each group of commands demonstrates.
+# Create HBase table for storing Spark ML model metrics
+create 'churn_metrics', 'cf'
+
+# Verify that the table was created
+list
+
+# Verify that the table is empty before Spark writes metrics
+scan 'churn_metrics'
+
+# Run again after Spark writes model-performance metrics
+scan 'churn_metrics'
