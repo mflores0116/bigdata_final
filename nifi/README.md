@@ -44,6 +44,7 @@ Explain where NiFi writes the dataset and how the destination is used by the nex
 
 ### HDFS Ingestion Verification
 
-![HDFS Verification](screenshots/hdfs-ingestion-verification.png)
+<img width="704" height="166" alt="image" src="https://github.com/user-attachments/assets/e9d9e58f-153d-471c-b6c2-12321409a72f" />
+
 
 The HDFS screenshot should show the `hdfs dfs -ls` output confirming that the project dataset was successfully written into HDFS.
