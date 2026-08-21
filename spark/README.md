@@ -47,7 +47,8 @@ Explain what the resulting values indicate about model performance.
 
 ### Model Evaluation
 
-![Spark ML Evaluation](screenshots/spark-ml-evaluation.png)
+![Spark ML Evaluation](screenshots/spark-ml-evaluation1.png)
+![Spark ML Evaluation](screenshots/spark-ml-evaluation2.png)
 
 ## Spark Submit / YARN Execution
 
