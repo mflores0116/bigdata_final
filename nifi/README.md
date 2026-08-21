@@ -18,7 +18,7 @@ The NiFi flow uses three processors to download the dataset, assign the correct 
 
 | Processor (Process Group) | Role in the Flow |
 |---|---|
-| Download File (InvokeHTTP) | Sends an HTTP Get request to download the `customer_churn.csv` into the Nifi flow |
+| Download File (InvokeHTTP) | Sends an HTTP GET request to download the `customer_churn.csv` into the NiFi flow |
 | Update File Name (UpdateAttribute) | Updates the FlowFile `filename` attribute so the downloaded file has the correct project filename |
 | Write File into HDFS (PutHDFS)| Writes the completed FlowFile into HDFS directory so it can be accessed by the next part of the pipeline|
 
@@ -29,28 +29,34 @@ Then, the FlowFile is passed to the Write File to HDFS processor, which connects
 ## HDFS Destination
 
 **HDFS Directory:** `/tmp`
+
 **Dataset Path:** `/tmp/customer_churn.csv`
 
-Nifi write `customer_churn.csv` to the `/tmp` HDFS directory using the PutHDFS processor. This makes the dataset available for the Hive stage of the pipeline.
+NiFi writes `customer_churn.csv` to the `/tmp` HDFS directory using the PutHDFS processor. This makes the dataset available for the Hive stage of the pipeline.
 
 ## Execution Evidence
 
 ### Final NiFi Flow
 
-The completed Nifi flow was exported and saved in the repository as:
+The completed NiFi flow was exported and saved in the repository as:
+
 [`flow-definition.json`](flow-definition.json)
-This file has the configuration for the completed Nifi ingestion flow. 
+
+This file contains the configuration for the completed NiFi ingestion flow. 
+
 
 ![NiFi Flow](screenshots/nifi-flow.png)
 
+The completed flow shows the three processors connected in sequence from the Download File processor to the HDFS write operation.
 
 ### Running Flow / Queue Activity
 
 ![NiFi Running](screenshots/nifi-running.png)
 ![NiFi Running](screenshots/nifi-running2.png)
 
+The screenshots above show the FlowFile activity moving through the NiFi processors and queues during ingestion. 
 ### HDFS Ingestion Verification
 
 ![HDFS Verification](screenshots/hdfs-ingestion-verification.png)
 
-The HDFS screenshot should show the `hdfs dfs -ls` output confirming that the project dataset was successfully written into HDFS.
+The HDFS verification screenshot shows the `hdfs dfs -ls /tmp` output and confirms that `customer_churn` was successfully written into HDFS.
