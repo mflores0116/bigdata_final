@@ -19,14 +19,15 @@ Explain the table schema and the key design choices made for the project dataset
 
 Explain how you confirmed that the data was successfully loaded into the managed Hive table.
 
-![Hive Load Results](screenshots/hive-load-results1.png)
-![Hive Load Results](screenshots/hive-load-results2.png)
-![Hive Load Results](screenshots/hive-load-results3.png)
+![Hive Load Results](screenshots/hive-load-results.png)
+
 
 ## Query & Aggregation Verification
 
 Describe the representative queries used to validate the populated table. Include at least one aggregation query and explain what the results demonstrate about the dataset and schema.
 
-![Hive Query Results](screenshots/hive-query-results.png)
+![Hive Query Results](screenshots/hive-query-results1.png)
+![Hive Query Results](screenshots/hive-query-results2.png)
+![Hive Query Results](screenshots/hive-query-results3.png)
 
 The validated Hive table becomes the structured input used by the PySpark MLlib application.
