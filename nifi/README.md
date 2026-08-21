@@ -8,7 +8,7 @@ Apache NiFi provides the ingestion and orchestration layer for this project. The
 
 **Dataset:** customer_churn.csv 
 
-**GitHub direct URL:** https://raw.githubusercontent.com/mflores0116/bigdata_final/refs/heads/main/sample-data/customer_churn.csv
+**GitHub direct URL:** https://raw.githubusercontent.com/mflores0116/predicting_churn_pipeline/refs/heads/main/sample-data/customer_churn.csv
 
 This dataset contains 1000 online customer retail records. It includes information about customer demographics, purchasing behavior, satisfaction, and marketing engagement. The variable of interest here is customer churn, which reflects how the customer interacts with the company. I selected this dataset because I wanted to explore consumer behavior and determine whether customer characteristics and activity could be used to predict churn. The dataset is already cleaned, which allows the focus of the project to be on building and demonstrating a working pipeline.
 
