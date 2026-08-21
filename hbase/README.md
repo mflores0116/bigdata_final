@@ -26,13 +26,16 @@ The commands used to create and inspect the table are stored in:
 
 ## Empty Table Verification
 
-Explain how the initial empty scan confirms that the target table exists before Spark writes any metrics.
+Before running the Spark MLlib application, the `churn_metrics` table is scanned to confirm that it exists and is ready to store model results. The scan returned `0 row(s)` which shows that the table is currently empty and is ready for Spark to write the performance metrics. 
 
 ![Empty HBase Scan](screenshots/hbase-empty-scan.png)
 
 ## Metrics Written by Spark
 
-List the model-performance metrics written into HBase.
+There were two model performance metrics produced by the Spark MLlib application. 
+
+### Accuracy
+### Area Under the Curve (AUC)
 
 Examples may include accuracy, precision, recall, F1 score, RMSE, MAE, or another metric appropriate for the selected MLlib algorithm.
 
