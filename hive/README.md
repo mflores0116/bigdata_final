@@ -47,11 +47,12 @@ Next, a churn aggregation query counted the number of customers in each target c
 
 This confirms that all 1,000 customer records are represented in the churn target. Additionally, the two options are relatively well balanced.
 
-
-Finally, an aggregation query compared average total spending and satisfaction scores by churn status. Customers who did not churn had an average total spend of 4,994.43 and an average satisfaction score of 2.94, while customers who churned had an average total spend of 5,158.62 and an average satisfaction score of 3.00.
-
-This query confirms that the numeric fields were loaded with the correct data types and can be used successfully in Hive aggregation calculations.
+Finally, an aggregation query compared average total spending and satisfaction scores by churn status. 
 
 ![Hive Query Results](screenshots/hive-query-results3.png)
+
+Customers who did not churn had an average total spend of 4,994.43 and an average satisfaction score of 2.94, while customers who churned had an average total spend of 5,158.62 and an average satisfaction score of 3.00.
+
+This query confirms that the numeric fields were loaded with the correct data types and can be used successfully in Hive aggregation calculations.
 
 The validated Hive table becomes the structured input used by the PySpark MLlib application.
