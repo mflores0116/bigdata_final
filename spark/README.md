@@ -40,19 +40,17 @@ Examples may include:
 
 ## MLlib Algorithm
 
-**Algorithm:** `[Enter algorithm]`
+**Algorithm:** Logistic Regression
 
-Explain:
+Logistic regression was chosen because the target variable is binary. Each customer is classified as either churned or not churned, making this a binary classification problem.
 
-- why this algorithm was appropriate for the selected dataset;
-- what prediction or modeling task it performs;
-- which features and target/label are used.
+The model uses customer demographics, purchasing behavior and satisfaction score to predict `target_churn`. 
 
 ## Training & Evaluation
 
-Summarize the training process and explain the evaluation metric or metrics used.
+The logistic regression model was trained on 70% of the data and evaluated by predicting the remaining 30%. 
 
-**Primary evaluation metric(s):** `[Enter metric(s)]`
+**Primary evaluation metric(s):** Accuracy and Area Under the ROC Curve (AUC)
 
 Explain what the resulting values indicate about model performance.
 
@@ -67,10 +65,14 @@ Explain what the resulting values indicate about model performance.
 
 ## Spark Submit / YARN Execution
 
-Document the exact `spark-submit` command used to submit the PySpark application through YARN.
+The PySpark application was submitted through YARN using:
 
 ```bash
-# Paste your spark-submit command here
+spark-submit \
+  --master yarn \
+  --deploy-mode client \
+  --name CustomerChurn_to_HBase \
+  analysis.py
 ```
 
 Briefly describe the successful execution and any important log or output information.
@@ -81,4 +83,4 @@ Briefly describe the successful execution and any important log or output inform
 
 List the model-performance metrics written by Spark into HBase and explain how the application connects the machine learning stage to the final persistence layer.
 
-**PySpark source files:** [`processing.py`](processing.py) and/or [`analysis.py`](analysis.py)
+**PySpark source files:**  [`analysis.py`](analysis.py)
