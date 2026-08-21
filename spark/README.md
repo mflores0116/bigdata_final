@@ -27,16 +27,13 @@ The `target_churn` field identifies whether a customer churned and is used as th
 
 ## Data Preparation & Transformations
 
-Describe the important preprocessing or transformation steps performed before model training.
+To begin, only the numeric fields needed for the machine learning model are selected from the Hive table. Rows containing null values are removed using `na.drop()`. 
 
-Examples may include:
+Since `target_churn` is stored as a Boolean value in Hive, it is converted to a numeric value so Spark MLlib can use it as the model label. 
 
-- selecting relevant features;
-- handling missing values;
-- encoding categorical fields;
-- assembling feature vectors;
-- scaling or normalization;
-- creating training and test datasets.
+Next, `VectorAssembler` combined the predictor columns into a single `features` vector that is required by Spark MLlib. 
+
+Finally, the dataset is split into a training/testing set using a 70/30 split. A random seed of 1 is used to ensure reproducibility. 
 
 ## MLlib Algorithm
 
@@ -52,7 +49,14 @@ The logistic regression model was trained on 70% of the data and evaluated by pr
 
 **Primary evaluation metric(s):** Accuracy and Area Under the ROC Curve (AUC)
 
-Explain what the resulting values indicate about model performance.
+The model produced the following results:
+
+- Accuracy: 0.49
+- AUC: 0.43651362984218084
+
+Accuracy measures the proportion of customer records that were classified correctly. An accuracy of 0.49 means that approximately 49% of the test records were classified correctly.
+
+AUC measures how well the model distinguishes between customers who churned and customers who did not churn across different decision thresholds. The AUC result of approximately 0.44 means that the model was unable to distinguish the two options reliably.
 
 ### Training Output
 
@@ -74,13 +78,19 @@ spark-submit \
   --name CustomerChurn_to_HBase \
   analysis.py
 ```
-
-Briefly describe the successful execution and any important log or output information.
+The application successfully executed through YARN, with Spark tasks distributed across the available worker nodes. The logs showed the model training and evaluation process completing successfully, followed by Spark shutting down the application normally.
 
 ![Spark Submit Output](screenshots/spark-submit-output.png)
 
 ## HBase Output
 
-List the model-performance metrics written by Spark into HBase and explain how the application connects the machine learning stage to the final persistence layer.
+After the model was evaluated, Spark wrote the two model-performance metrics into the churn_metrics HBase table:
 
-**PySpark source files:**  [`analysis.py`](analysis.py)
+- cf:accuracy
+- cf:auc
+
+Both values were stored under the row key metrics1.
+
+The PySpark application connects to HBase through the HBase Thrift server using the happybase Python library. This allows the Spark application to store its final model performance results in HBase. This completed the final stage of the pipeline.
+
+**PySpark source file:**  [`analysis.py`](analysis.py)
