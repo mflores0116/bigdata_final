@@ -186,7 +186,8 @@ The application is submitted using `spark-submit` through YARN, demonstrating cl
 </p>
 
 <p align="center">
-  <img src="spark/screenshots/spark-ml-evaluation.png" alt="Spark MLlib evaluation metrics" width="900">
+  <img src="spark/screenshots/spark-ml-evaluation1.png" alt="Spark MLlib evaluation metrics" width="900">
+  <img src="spark/screenshots/spark-ml-evaluation2.png" alt="Spark MLlib evaluation metrics" width="900">
 </p>
 
 <p align="center">
