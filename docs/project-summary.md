@@ -19,17 +19,39 @@ Briefly explain what the dataset contains and why it is appropriate for the sele
 
 ## Environment Setup
 
-Document the supporting environment configuration required by the project.
+Before running the Spark MLlib application, the Python environment was prepared on the master and worker containers by installing the `numpy` and `happybase` packages.
 
-Explain why the required Python libraries (for example, `numpy` and `happybase`) are needed and why the HBase Thrift server must be running for the Spark-to-HBase portion of the pipeline.
+These packages were installed using:
+
+```bash
+pip3 install numpy happybase
+```
+
+The HappyBase Python library is required because PySpark uses it to connect to HBase and write the final model-performance metrics. NumPy was installed for numerical and data-processing capabilities.
+
+Both packages were installed on the master, worker1, and worker2 containers so the Python dependencies are available across the Spark environment.
 
 ### Package Installation Evidence
 
 ![Package Installation](screenshots/package-installation.png)
 
+The package installation completed successfully, confirming that the Python environment is ready for the Spark-to-HBase part of the pipeline.
+
 ### HBase Thrift Server Evidence
 
+The HBase Thrift server was started on the master container before running the Spark application.
+
+The Thrift server provides the connection between the `happybase` library and HBase. This service is needed so that PySpark can write the accuracy and AUC values into the `churn_metrics` table. 
+
+The service was started using:
+
+```bash
+nohup hbase thrift start &
+```
+
 ![HBase Thrift Server](screenshots/hbase-thrift-server.png)
+
+The running HBase Thrift process confirms that the service is available before running the Spark MLlib application.
 
 ## What Worked
 
