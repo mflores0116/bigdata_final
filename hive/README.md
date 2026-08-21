@@ -42,6 +42,7 @@ Next, a churn aggregation query counted the number of customers in each target c
   
   - No Churn (false): 474 customers
   - Churn (true): 526 customers
+    
 ![Hive Query Results](screenshots/hive-query-results2.png)
 
 This confirms that all 1,000 customer records are represented in the churn target. Additionally, the two options are relatively well balanced.
