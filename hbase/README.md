@@ -35,6 +35,7 @@ Before running the Spark MLlib application, the `churn_metrics` table is scanned
 There were two model performance metrics produced by the Spark MLlib application. 
 
 **Accuracy:** 0.49
+
 **Area Under the Curve (AUC):** 0.43651362984218084
 
 These metrics were selected because the target variable is a binary outcome (churn or not churn) so a logistic regression is the chosen model.
