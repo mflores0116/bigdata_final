@@ -45,8 +45,7 @@ Nifi write `customer_churn.csv` to the above HDFS directory using the PutHDFS pr
 
 ### HDFS Ingestion Verification
 
-<img width="704" height="166" alt="image" src="https://github.com/user-attachments/assets/e9d9e58f-153d-471c-b6c2-12321409a72f" />
-<img width="743" height="230" alt="image" src="https://github.com/user-attachments/assets/d39183eb-d2ec-4d44-8b3d-ebb0f29efee1" />
+hdfs-ingestion-verification.png
 
 
 The HDFS screenshot should show the `hdfs dfs -ls` output confirming that the project dataset was successfully written into HDFS.
