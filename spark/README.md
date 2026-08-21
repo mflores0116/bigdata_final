@@ -60,12 +60,21 @@ AUC measures how well the model distinguishes between customers who churned and 
 
 ### Training Output
 
+The training output shows Spark tasks being distributed across `worker1` and `worker2` through YARN. 
+
 ![Spark Training Output](screenshots/spark-training-output.png)
+
+The completed task messages confirm that the Spark application was able to use the available worker nodes during the machine learning process.
 
 ### Model Evaluation
 
 ![Spark ML Evaluation](screenshots/spark-ml-evaluation1.png)
+
+The evaluation output produced an accuracy of 0.49, meaning that approximately 49% of the test records were classified correctly by the logistic regression model.
+
 ![Spark ML Evaluation](screenshots/spark-ml-evaluation2.png)
+
+The AUC value was 0.43651362984218084. This indicates that the model had limited ability to distinguish between customers who churned and customers who did not churn across different classification thresholds.
 
 ## Spark Submit / YARN Execution
 
