@@ -19,7 +19,9 @@ Explain the table schema and the key design choices made for the project dataset
 
 Explain how you confirmed that the data was successfully loaded into the managed Hive table.
 
-![Hive Load Results](screenshots/hive-load-results.png)
+![Hive Load Results](screenshots/hive-load-results1.png)
+![Hive Load Results](screenshots/hive-load-results2.png)
+![Hive Load Results](screenshots/hive-load-results3.png)
 
 ## Query & Aggregation Verification
 
