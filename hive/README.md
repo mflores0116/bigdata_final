@@ -33,16 +33,18 @@ The data load was verified by displaying records from the table and confirming t
 
 A series of queries were run to confirm the table was properly loaded and can be queried using SQL commands.
 
-First, a churn aggregation query counted the number of customers in each target class:
+First, a row-count query was used to confirm that all 1,000 customer records were successfully loaded. 
+![Hive Query Results](screenshots/hive-query-results1.png)
+From above, there are exactly 1,000 rows in the table so all data was loaded correctly.
+
+Next, a churn aggregation query counted the number of customers in each target class:
   
   - No Churn (false): 474 customers
   - Churn (true): 526 customers
-
-![Hive Query Results](screenshots/hive-query-results1.png)
-
+![Hive Query Results](screenshots/hive-query-results2.png)
 This confirms that all 1,00 customer records are represented in the churn target. Additionally, the two options are relatively well balanced.
 
-![Hive Query Results](screenshots/hive-query-results2.png)
+
 ![Hive Query Results](screenshots/hive-query-results3.png)
 
 The validated Hive table becomes the structured input used by the PySpark MLlib application.
