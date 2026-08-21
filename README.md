@@ -164,7 +164,9 @@ The Hive implementation demonstrates schema definition, managed-table creation, 
 </p>
 
 <p align="center">
-  <img src="hive/screenshots/hive-query-results.png" alt="Hive query and aggregation results" width="900">
+  <img src="hive/screenshots/hive-query-results1.png" alt="Hive query and aggregation results" width="900">
+  <img src="hive/screenshots/hive-query-results2.png" alt="Hive query and aggregation results" width="900">
+  <img src="hive/screenshots/hive-query-results3.png" alt="Hive query and aggregation results" width="900">
 </p>
 
 **Implementation details:** [`hive/README.md`](hive/README.md)  
