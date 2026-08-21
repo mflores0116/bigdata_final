@@ -34,12 +34,16 @@ Before running the Spark MLlib application, the `churn_metrics` table is scanned
 
 There were two model performance metrics produced by the Spark MLlib application. 
 
-### Accuracy
-### Area Under the Curve (AUC)
+**Accuracy:** 0.49
+**Area Under the Curve (AUC):** 0.43651362984218084
 
-Examples may include accuracy, precision, recall, F1 score, RMSE, MAE, or another metric appropriate for the selected MLlib algorithm.
+These metrics were selected because the target variable is a binary outcome (churn or not churn) so a logistic regression is the chosen model.
 
-Explain how these values represent the output of the Spark machine learning workflow.
+Accuracy means the proportion of customer records that the model correctly classified. It is the most straightforward way to see how often the model made the right prediction.
+
+AUC, or area under the ROC curve, measures how well the model can tell the difference between the classes across decision thresholds. 
+
+The results of this model indicate that the logistic regression model had moderate predictive power. 
 
 ## Populated Table Verification
 
