@@ -40,7 +40,7 @@ Nifi write `customer_churn.csv` to the above HDFS directory using the PutHDFS pr
 ### Running Flow / Queue Activity
 
 ![NiFi Running](screenshots/nifi-running.png)
-
+![NiFi Running](screenshots/nifi-running2.png)
 
 ### HDFS Ingestion Verification
 
