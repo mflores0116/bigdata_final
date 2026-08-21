@@ -6,9 +6,24 @@ Apache Spark MLlib provides the distributed processing and machine learning laye
 
 ## Hive Input
 
-**Hive table:** `[Enter Hive table name]`
+**Hive table:** `customer_churn`
 
-Explain what data Spark reads from Hive and which fields are used by the machine learning workflow.
+Spark reads the customer churn data directly from the managed Hive table created earlier in the pipeline. The machine learning workflow uses numeric customer and purchasing variables as predictors and `target_churn` as the target variable.
+
+The selected input features are:
+
+- age
+- annual_income
+- total_spend
+- years_as_customer
+- num_of_purchases
+- average_transaction_amount
+- num_of_returns
+- num_of_support_contacts
+- satisfaction_score
+- last_purchase_days_ago
+
+The `target_churn` field identifies whether a customer churned and is used as the model label.
 
 ## Data Preparation & Transformations
 
