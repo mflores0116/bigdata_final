@@ -52,11 +52,15 @@ The completed flow shows the three processors connected in sequence from the Dow
 ### Running Flow / Queue Activity
 
 ![NiFi Running](screenshots/nifi-running.png)
+
+After the `Download File` processor retrieved the dataset, the `Response` queue contains one FlowFile with a size of approximately 69.96 KB. This confirms that `customer_churn.csv` was successfully downloaded from GitHub and is ready to move to the `Update File Name` processor.
+
 ![NiFi Running](screenshots/nifi-running2.png)
 
-The screenshots above show the FlowFile activity moving through the NiFi processors and queues during ingestion. 
+After passing through the `Update File Name` processor, the 69.96 KB FlowFile was transferred to the `success` queue before being passed to to the `Write File to HDFS` processor. This shows that the dataset successfully moved through the NiFi ingestion flow toward HDFS.
+
 ### HDFS Ingestion Verification
 
 ![HDFS Verification](screenshots/hdfs-ingestion-verification.png)
 
-The HDFS verification screenshot shows the `hdfs dfs -ls /tmp` output and confirms that `customer_churn` was successfully written into HDFS.
+Running `hdfs dfs -ls /tmp` confirms that `customer_churn` was successfully written to the `/tmp` directory in HDFS. This verifies that the NiFi ingestion process was successfully completed and the dataset is available for the next stage of the pipeline. 
